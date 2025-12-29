@@ -4,6 +4,8 @@
     <menu id="application" title="msg://ru.akvine.dozor/menu.application.title" opened="true">
         <item view="Plan_.list" title="msg://ru.akvine.dozor.view.plan/planListView.title"/>
         <item view="User.list" title="msg://ru.akvine.dozor.view.user/UserListView.title"/>
+        <item view="Domain.list" title="msg://ru.akvine.dozor.view.domain/domainListView.title"/>
+        <item view="Dictionary.list" title="msg://ru.akvine.dozor.view.dictionary/dictionaryListView.title"/>
     </menu>
 
 </menu-config>

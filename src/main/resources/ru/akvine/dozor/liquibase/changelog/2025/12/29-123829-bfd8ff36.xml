@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="dozor">
+        <createTable tableName="DOMAIN">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DOMAIN"/>
+            </column>
+            <column name="CRITICALLY_TYPE" type="VARCHAR(255)"/>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+            <column name="IS_SYSTEM" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="REGEXP" type="VARCHAR(255)"/>
+            <column name="OWNER_ID" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="dozor">
+        <createTable tableName="Dictionary">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DICTIONARY"/>
+            </column>
+            <column name="OWNER_ID" type="UUID"/>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="VALUES" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_SYSTEM" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="dozor">
+        <createIndex indexName="IDX_DICTIONARY_OWNER" tableName="Dictionary">
+            <column name="OWNER_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="OWNER_ID" baseTableName="Dictionary"
+                                 constraintName="FK_DICTIONARY_ON_OWNER" referencedColumnNames="ID"
+                                 referencedTableName="USER_"/>
+    </changeSet>
+    <changeSet id="4" author="dozor">
+        <createIndex indexName="IDX_DOMAIN_OWNER" tableName="DOMAIN">
+            <column name="OWNER_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="OWNER_ID" baseTableName="DOMAIN" constraintName="FK_DOMAIN_ON_OWNER"
+                                 referencedColumnNames="ID" referencedTableName="USER_"/>
+    </changeSet>
+</databaseChangeLog>
