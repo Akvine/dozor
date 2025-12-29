@@ -28,7 +28,7 @@ public class Dictionary {
     private String name;
 
     @Column(name = "ITEMS", nullable = false)
-    private List<String> values = List.of();
+    private List<String> items = List.of();
 
     @Column(name = "IS_SYSTEM", nullable = false)
     private Boolean system = false;
@@ -36,12 +36,12 @@ public class Dictionary {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    public void setValues(List<String> values) {
-        this.values = values;
+    public void setItems(List<String> items) {
+        this.items = items;
     }
 
-    public List<String> getValues() {
-        return values;
+    public List<String> getItems() {
+        return items;
     }
 
     public User getOwner() {

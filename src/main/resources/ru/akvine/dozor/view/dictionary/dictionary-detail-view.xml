@@ -23,7 +23,7 @@
                 <responsiveStep minWidth="40em" columns="2"/>
             </responsiveSteps>
             <textField id="nameField" property="name"/>
-            <textField id="valuesField" property="values"/>
+            <textField id="valuesField" property="items"/>
             <checkbox id="systemField" property="system"/>
             <textField id="descriptionField" property="description"/>
         </formLayout>
