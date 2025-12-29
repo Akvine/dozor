@@ -2,6 +2,7 @@
 <menu-config xmlns="http://jmix.io/schema/flowui/menu">
 
     <menu id="application" title="msg://ru.akvine.dozor/menu.application.title" opened="true">
+        <item view="Plan_.list" title="msg://ru.akvine.dozor.view.plan/planListView.title"/>
         <item view="User.list" title="msg://ru.akvine.dozor.view.user/UserListView.title"/>
     </menu>
 
